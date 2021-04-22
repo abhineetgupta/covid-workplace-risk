@@ -86,7 +86,7 @@ from covid_workplace_model import *
 
 The following functions are provided - 
 * `get_activity_multiplier` - Returns speaking activity multiplier for a given speaking volume in dB.
-* `get_activity_virion` - Returns the activity virions based on speaking percentage and activity_multiplier
+* `get_activity_virion` - Returns the activity virions based on speaking percentage and volume
 * `get_sar_from_speaking_airflow` - Returns the SAR values, given design airflow in ACH, filteration, speaking percentage, speaking volume, and mask effectiveness ratio
 * `get_betadist_parameters` - Returns alpha and beta parameters for a Beta distribution given the average SAR
 * `get_sar_given_betadist_parameters` - Returns average SAR values, given alpha and beta parameters for a Beta distribution

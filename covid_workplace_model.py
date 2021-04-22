@@ -40,7 +40,7 @@ def get_activity_multiplier(speaking_volume):
 
 
 def get_activity_virion(speaking_percentage, speaking_volume):
-    """Returns the activity virions based on speaking percentage and activity_multiplier
+    """Returns the activity virions based on speaking percentage and volume
     -----Parameters-----
             speaking_percentage: scalar or array of percentage time spent talking,
                 yelling, singing, etc. in range [0., 1.]
