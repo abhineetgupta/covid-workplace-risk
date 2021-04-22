@@ -4,7 +4,7 @@ Created on : 2021-04-21
 Last Modified by : Abhineet Gupta
 Last Modified on : 2021-04-
 Accompanying Paper : Guo, X.; Gupta, A.; Sampat, A; Wei, C. A Stochastic Contact Network Model for 
-                        Assessing Outbreak Risk of COVID-19 inWorkplaces.
+                        Assessing Outbreak Risk of COVID-19 in Workplaces.
 """
 
 import logging
@@ -17,7 +17,7 @@ def version():
 
 
 def get_activity_multiplier(speaking_volume):
-    """Function that returns speaking activity multiplier for a given speaking volume in dB.
+    """Returns speaking activity multiplier for a given speaking volume in dB.
     Calculation is based on Asadi, Sima, Anthony S. Wexler, Christopher D. Cappa, Santiago
     Barreda, Nicole M. Bouvier, and William D. Ristenpart. 2019. “Aerosol Emission and
     Superemission during Human Speech Increase with Voice Loudness.”
@@ -40,7 +40,7 @@ def get_activity_multiplier(speaking_volume):
 
 
 def get_activity_virion(speaking_percentage, speaking_volume):
-    """Return the activity virions based on speaking percentage and activity_multiplier
+    """Returns the activity virions based on speaking percentage and activity_multiplier
     -----Parameters-----
             speaking_percentage: scalar or array of percentage time spent talking,
                 yelling, singing, etc. in range [0., 1.]
@@ -70,8 +70,8 @@ def get_sar_from_speaking_airflow(
     speaking_volume=65,
     mask_effectiveness=0.0,
 ):
-    """Given design airflow in ACH, speaking percentage, activity multiplier,
-    and mask effectiveness ratio, returns the corresponding SAR values.
+    """Returns the SAR values, given design airflow in ACH, filteration, speaking percentage,
+    speaking volume, and mask effectiveness ratio
     Based on Prentiss, Mara, Arthur Chu, and Karl K. Berggren. 2020. “Superspreading
     Events Without Superspreaders: Using High Attack Rate Events to Estimate Nº for
     Airborne Transmission of COVID-19.” MedRxiv, October, 2020.10.21.20216895.
@@ -117,7 +117,7 @@ def get_sar_from_speaking_airflow(
 
 
 def get_betadist_parameters(sar):
-    """Given SAR values, return corresponding alpha and beta parameters for their Beta distribution
+    """Returns alpha and beta parameters for a Beta distribution given the average SAR
     -----Parameters-----
             sar : array of SAR values in range [0., 1.]
     -----Returns-----
@@ -134,7 +134,7 @@ def get_betadist_parameters(sar):
 
 
 def get_sar_given_betadist_parameters(betadist_alpha, betadist_beta):
-    """Given alpha and beta parameters for a Beta distribution, returns corresponding average SAR values
+    """Returns average SAR values, given alpha and beta parameters for a Beta distribution
     -----Parameters-----
             betadist_alpha : scalar or array of alpha parameter for Beta distribution
             betadist_beta : scalar or array of beta parameter for Beta distribution
@@ -145,7 +145,7 @@ def get_sar_given_betadist_parameters(betadist_alpha, betadist_beta):
 
 
 def probability_introduction_each_day(employees_at_work, case_rate):
-    """Calculate the probability of case introduction based on daily new case rate
+    """Returns the probability of case introduction based on employees, and daily new case rate
     -----Parameters-----
             employees_at_work : pre covid population * (1 - working from home)
             case_rate : x-day running average for new cases per unit of population,
@@ -165,7 +165,7 @@ def calculate_nday_workplace_incidence(
     num_days=10,
     num_sims=10000,
 ):
-    """Calculate the cumulative incidence in a workplace over N days (default: 10 days)
+    """Returns the cumulative incidence in a workplace over N days (default: 10 days)
     -----Parameters-----
             employees_at_work : pre covid population * (1 - working from home)
             daily_contact_size : average number of daily contacts per employee
