@@ -15,7 +15,7 @@ scipy
 
 ## Quick Usage
 
-In a terminal, type the following command to save 10,000 simulations of cumulative incidence in a workplace after 10 days in a csv file `workplace_outbreak.csv`.
+In a terminal, type the following command to save 10,000 simulations of cumulative incidence in a workplace after 10 days in a csv file.
 
 
 ```
