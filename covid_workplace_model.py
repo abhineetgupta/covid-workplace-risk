@@ -144,7 +144,7 @@ def get_sar_given_betadist_parameters(betadist_alpha, betadist_beta):
     return betadist_alpha / (betadist_alpha + betadist_beta)
 
 
-def probability_introduction_each_day(employees_at_work, case_rate):
+def get_probability_introduction_each_day(employees_at_work, case_rate):
     """Returns the probability of case introduction based on employees, and daily new case rate
     -----Parameters-----
             employees_at_work : pre covid population * (1 - working from home)
@@ -190,7 +190,6 @@ def calculate_nday_workplace_incidence(
     daily_contact_size = int(min(daily_contact_size, employees_at_work))
     rng = np.random.default_rng(42)
 
-    prob_day0_gen1 = probability_introduction_each_day(employees_at_work, case_rate)
     num_infected_gen1 = rng.binomial(
         n=int(employees_at_work),
         p=case_rate,

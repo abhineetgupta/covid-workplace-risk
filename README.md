@@ -90,7 +90,7 @@ The following functions are provided -
 * `get_sar_from_speaking_airflow` - Returns the SAR values, given design airflow in ACH, filteration, speaking percentage, speaking volume, and mask effectiveness ratio
 * `get_betadist_parameters` - Returns alpha and beta parameters for a Beta distribution given the average SAR
 * `get_sar_given_betadist_parameters` - Returns average SAR values, given alpha and beta parameters for a Beta distribution
-* `probability_introduction_each_day` - Returns the probability of case introduction based on employees, and daily new case rate
+* `get_probability_introduction_each_day` - Returns the probability of case introduction based on employees, and daily new case rate
 * `calculate_nday_workplace_incidence` - Returns the cumulative incidence in a workplace over N days
 
 ## Contributing
