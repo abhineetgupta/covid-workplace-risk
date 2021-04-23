@@ -87,8 +87,10 @@ def get_sar_from_speaking_airflow(
     -----Returns-----
             sar : SAR values in the range [0, 1.]
     """
+    # Decay factor based on paper mentioned above
     virion_additional_decay_factor = 0.62
 
+    # Benchmark values are based on literature review and described in accompanying paper for this model
     speaking_percentage_benchmark_sar = 0.25
     speaking_volume_benchmark_sar = 65
     actual_airflow_benchmark_sar = 2.0
@@ -221,6 +223,7 @@ def calculate_nday_workplace_incidence(
             key: np.empty(0, dtype=np.int32) for key in infected_index_gen1
         }
         infected_index_contacts = np.empty(0, dtype=np.int32)
+        # calculate transmission for each day
         for day in range(num_days):
             if running_sum_infected_gen1[day] > 0:
                 infected_index_gen1_for_day = infected_index_gen1[
@@ -229,7 +232,7 @@ def calculate_nday_workplace_incidence(
                 num_contacts_for_day = num_contacts_daily[
                     : running_sum_infected_gen1[day], day
                 ]
-
+                # calculate transmission from each 1st gen case
                 for i, index_gen1 in enumerate(infected_index_gen1_for_day):
                     if num_contacts_for_day[i] <= 0:
                         previous_contacts[index_gen1] = np.empty(0, dtype=np.int32)
